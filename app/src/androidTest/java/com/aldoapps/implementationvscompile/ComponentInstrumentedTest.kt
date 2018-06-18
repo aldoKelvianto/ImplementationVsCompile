@@ -11,7 +11,7 @@ import org.junit.runner.RunWith
 class ComponentInstrumentedTest {
 
     @Test
-    fun moneyIsTheSecret() {
+    fun moneyIsTheComponent() {
         // Given
         // When
         val component = MyAndroidComponent.getComponent()

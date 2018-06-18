@@ -5,7 +5,7 @@ This project has two branches:
 - implementation
 - compile
 
-Both test has similar use case, click FAB to show the component from `myandroidlibrary`. The difference is the configuration I have used on `myandroidlibrary` build.gradle. You can refer to the unit test to see difference.
+Both test has similar use case, click FAB to show the component from `myandroidlibrary`. The difference is the configuration I have used on `myandroidlibrary` build.gradle. You can refer to the unit test on `app` module to see difference.
 
 I will repost my answer about implementation and compile here:
 

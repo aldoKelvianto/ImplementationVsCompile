@@ -8,7 +8,7 @@ import org.junit.Test
 class ComponentUnitTest {
 
     @Test
-    fun moneyIsTheSecret() {
+    fun moneyIsTheComponent() {
         // Given
         // When
         val component = MyAndroidComponent.getComponent()
@@ -16,5 +16,16 @@ class ComponentUnitTest {
         // Then
         Assert.assertNotNull(component)
         assertEquals("My Component: Money", component)
+    }
+
+    @Test
+    fun unableToAccessSecret() {
+        // Given
+        // When
+        // val secret = MySecret.getSecret()
+
+        // Then
+        // Assert.assertNotNull(secret)
+        // assertEquals("Money", secret)
     }
 }
