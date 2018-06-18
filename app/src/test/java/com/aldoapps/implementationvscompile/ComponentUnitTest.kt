@@ -1,9 +1,10 @@
 package com.aldoapps.implementationvscompile
 
 import com.aldoapps.myandroidlibrary.MyAndroidComponent
-import junit.framework.Assert
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
+
 
 class ComponentUnitTest {
 
@@ -14,7 +15,7 @@ class ComponentUnitTest {
         val component = MyAndroidComponent.getComponent()
 
         // Then
-        Assert.assertNotNull(component)
+        assertNotNull(component)
         assertEquals("My Component: Money", component)
     }
 
@@ -25,7 +26,7 @@ class ComponentUnitTest {
         // val secret = MySecret.getSecret()
 
         // Then
-        // Assert.assertNotNull(secret)
+        // assertNotNull(secret)
         // assertEquals("Money", secret)
     }
 }
