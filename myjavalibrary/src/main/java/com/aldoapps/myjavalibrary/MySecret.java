@@ -1,4 +1,10 @@
 package com.aldoapps.myjavalibrary;
 
-public class MySecret {
+public final class MySecret {
+
+    public static String getSecret() {
+        return "Money";
+    }
+
+    private MySecret() {}
 }

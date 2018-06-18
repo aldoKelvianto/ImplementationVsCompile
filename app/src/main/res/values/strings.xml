@@ -1,4 +1,5 @@
 <resources>
   <string name="app_name">ImplementationVsCompile</string>
   <string name="action_go_to_so">Stack Overflow Question</string>
+  <string name="tap_fab_to_retrieve_value">Tap FAB to retrieve value</string>
 </resources>

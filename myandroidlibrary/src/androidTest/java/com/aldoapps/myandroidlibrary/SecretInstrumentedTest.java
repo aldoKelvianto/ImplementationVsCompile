@@ -11,7 +11,7 @@ import android.support.test.runner.AndroidJUnit4;
 import com.aldoapps.myjavalibrary.MySecret;
 
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest {
+public class SecretInstrumentedTest {
 
     @Test
     public void moneyIsTheSecret() {

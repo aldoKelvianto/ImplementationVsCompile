@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.aldoapps.myandroidlibrary.MyAndroidComponent
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,9 +18,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            // TODO: Fetch data from library
+        fab.setOnClickListener {
+            loadComponentToTextView()
         }
+    }
+
+    private fun loadComponentToTextView() {
+        val component = MyAndroidComponent.getComponent()
+        tv_result.text = component
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -34,9 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openGithub(): Boolean {
-        val url = Uri.parse("https://stackoverflow.com/a/48388463/1760984")
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = url
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://stackoverflow.com/a/48388463/1760984"))
         startActivity(intent)
         return true
     }
