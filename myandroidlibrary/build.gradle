@@ -10,18 +10,10 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 dependencies {
     implementation project(':myjavalibrary')
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Test
     testImplementation 'junit:junit:4.12'
