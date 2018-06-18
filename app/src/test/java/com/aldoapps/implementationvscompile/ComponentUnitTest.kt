@@ -1,6 +1,7 @@
 package com.aldoapps.implementationvscompile
 
 import com.aldoapps.myandroidlibrary.MyAndroidComponent
+import com.aldoapps.myjavalibrary.MySecret
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Test
@@ -23,10 +24,10 @@ class ComponentUnitTest {
     fun unableToAccessSecret() {
         // Given
         // When
-        // val secret = MySecret.getSecret()
+        val secret = MySecret.getSecret()
 
         // Then
-        // assertNotNull(secret)
-        // assertEquals("Money", secret)
+        assertNotNull(secret)
+        assertEquals("Money", secret)
     }
 }
