@@ -11,8 +11,6 @@ I will repost my answer about implementation and compile here:
 
 ----
 
-
-
 This answer will demonstrate the difference between `implementation`, `api`, and `compile` on a project. Let's say I have a project with three Gradle modules:
 
  - app (an Android application)
@@ -25,44 +23,53 @@ This answer will demonstrate the difference between `implementation`, `api`, and
 
 `myjavalibrary` has a `MySecret` class
 
+```java
+public class MySecret {
 
-    public class MySecret {
-    
-        public static String getSecret() {
-            return "Money";
-        }
+    public static String getSecret() {
+        return "Money";
     }
-
+}
+```
 `myandroidlibrary` has `MyAndroidComponent` class that manipulate value from `MySecret` class.
 
-    public class MyAndroidComponent {
-    
-        private static String component = MySecret.getSecret();
-    
-        public static String getComponent() {
-            return "My component: " + component;
-        }    
-    }
+```java
+public class MyAndroidComponent {
+
+    private static String component = MySecret.getSecret();
+
+    public static String getComponent() {
+        return "My component: " + component;
+    }    
+}
+```
 
 Lastly, `app` is only interested in the value from `myandroidlibrary`
 
-    TextView tvHelloWorld = findViewById(R.id.tv_hello_world);
-    tvHelloWorld.setText(MyAndroidComponent.getComponent());
+```java
+TextView tvHelloWorld = findViewById(R.id.tv_hello_world);
+tvHelloWorld.setText(MyAndroidComponent.getComponent());
+```
 
 Now, let's talk about dependencies on `app` build.gradle. It's very simple and intuitive.
-    dependencies {
-        implementation project(':myandroidlibrary')      
-    }
+
+```groovy
+dependencies {
+    implementation project(':myandroidlibrary')      
+}
+```
 
 What do you think `myandroidlibrary` build.gradle should look like? We have three options:
-    dependencies {
-        // Option #1
-        implementation project(':myjavalibrary') 
-        // Option #2
-        compile project(':myjavalibrary')      
-        // Option #3
-        api project(':myjavalibrary')           
-    }
+```groovy
+dependencies {
+    // Option #1
+    implementation project(':myjavalibrary') 
+    // Option #2
+    compile project(':myjavalibrary')      
+    // Option #3
+    api project(':myjavalibrary')           
+}
+```
 
 > What's the difference between them and what should I be using?
 
@@ -70,21 +77,23 @@ What do you think `myandroidlibrary` build.gradle should look like? We have thre
 
 If you're using `compile` and `api`. Our Android Application now able to access `myandroidcomponent` dependency, which is a `MySecret` class.
 
-
-    TextView textView = findViewById(R.id.text_view);
-    textView.setText(MyAndroidComponent.getComponent());
-    // You can access MySecret
-    textView.setText(MySecret.getSecret());
+```java
+TextView textView = findViewById(R.id.text_view);
+textView.setText(MyAndroidComponent.getComponent());
+// You can access MySecret
+textView.setText(MySecret.getSecret());
+```
 
 **Implementation**
 
 If you're using `implementation` configuration, `MySecret` is not exposed.
 
-
-    TextView textView = findViewById(R.id.text_view);
-    textView.setText(MyAndroidComponent.getComponent());
-    // You can NOT access MySecret
-    textView.setText(MySecret.getSecret()); // Won't even compile
+```java
+TextView textView = findViewById(R.id.text_view);
+textView.setText(MyAndroidComponent.getComponent());
+// You can NOT access MySecret
+textView.setText(MySecret.getSecret()); // Won't even compile
+```
 
 So, which configuration you should choose? That really depends on your requirement. 
 
