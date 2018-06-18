@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">ImplementationVsCompile</string>
+  <string name="action_go_to_so">Stack Overflow Question</string>
+</resources>
