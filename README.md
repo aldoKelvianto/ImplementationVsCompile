@@ -51,7 +51,7 @@ TextView tvHelloWorld = findViewById(R.id.tv_hello_world);
 tvHelloWorld.setText(MyAndroidComponent.getComponent());
 ```
 
-Now, let's talk about dependencies on `app` build.gradle. It's very simple and intuitive.
+Now, let's talk about dependencies on `app` build.gradle. It's simple and intuitive. `app` need to use `:myandroidlibrary`
 
 ```groovy
 dependencies {
