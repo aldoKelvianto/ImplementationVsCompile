@@ -3,13 +3,12 @@ package com.aldoapps.implementationvscompile
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.aldoapps.myandroidlibrary.MyAndroidComponent
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,8 +40,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openGithub(): Boolean {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://stackoverflow.com/a/48388463/1760984"))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(STACK_OVERFLOW_LINK))
         startActivity(intent)
         return true
+    }
+
+    companion object {
+        private const val STACK_OVERFLOW_LINK = "https://stackoverflow.com/a/48388463/1760984"
     }
 }
